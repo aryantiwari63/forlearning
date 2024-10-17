@@ -48,6 +48,7 @@ function Profile() {
        {/* <p>{user.name}</p>  */}
        
        <div>
+        <p>hello</p>
            <p>Name: aryan</p>
        </div>
     </div>

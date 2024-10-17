@@ -7,6 +7,7 @@ function Navbar() {
     <div>
       <div >
         <ul className='nav'>
+          <p>hello</p>
             <li><Link to="/signup">Signup</Link></li>
             <li><Link to="/login">Login</Link></li>
             <li><Link to="/profile">Profile</Link></li>
