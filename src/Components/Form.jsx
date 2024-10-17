@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-
+import Formstyle from './Form.css'
 function Form() {
 
 
@@ -28,12 +28,10 @@ function Form() {
           },
           body: JSON.stringify(formdata)
         });
-      
-  
         if (response.ok) {
-          alert('Job posted successfully!');
+          alert('form posted successfully!');
         } else {
-          alert('Failed to post job');
+          alert('Failed to post form');
         }
         const result = await response.json();
         console.log('Success:', result);
@@ -41,14 +39,13 @@ function Form() {
         console.error('Error:', error);
         alert('Error posting job');
       }
- 
     };
 
   return (
     <div>
           <form onSubmit={formdatafun}>
             <label>Name</label>
-            <input type="text" name="name" onChange={handleChange}/><br/>
+            <input type="text" name="name"  onChange={handleChange}/><br/>
             <label>Email</label>
             <input type="email" name="email" onChange={handleChange}/><br/>
             <label>Password</label>

@@ -1,0 +1,15 @@
+
+.nav{
+    list-style-type: none;
+ 
+    display: flex;
+    column-gap: 10%;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+.nav li{
+    color: black;
+    text-decoration: none;
+}
+
+

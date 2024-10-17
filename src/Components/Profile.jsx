@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react'
+import { Navigate, useNavigate } from 'react-router-dom';
+
 
 function Profile() {
   const [user, setUser] = useState(null);
+  const navigate = useNavigate();
+
   useEffect(() => {
     const fetchProfile = async () => {
       const token = localStorage.getItem('token');
@@ -12,25 +16,41 @@ function Profile() {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
+            'Authorization': token
           }
         });
         const data = await response.json();
-       
+       console.log(data);
+       console.log(response.data);
         if (response.ok) {
           setUser(data);
         } else {
           console.log(data.message);
         }
       } catch (error) {
-        console.log('Error fetching profile:', error);
+        if (error.response && error.response.status === 401) {
+          navigate('/login'); 
+        } else {
+          console.error("An error occurred:", error);
+        }
+
       }
     };
   
     fetchProfile();
   }, []);
+
+
+
   return (
-    <div>Profile</div>
+    <div>
+   
+       {/* <p>{user.name}</p>  */}
+       
+       <div>
+           <p>Name: aryan</p>
+       </div>
+    </div>
   )
 }
 
